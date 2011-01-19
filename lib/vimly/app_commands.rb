@@ -30,6 +30,23 @@ module Redcar
       end
     end
 
+    class OpenWebBrowserCommand < Redcar::Command
+      def self.regex
+        /^w (.*)$/
+      end
+
+      def self.description
+        "Open a link in a web browser"
+      end
+
+      def execute(params)
+        options = params[:options]
+        raise "No parameters given" unless options
+        path = options.first
+        Redcar::HtmlView::DisplayWebContent.new('Web Browser',path).run
+      end
+    end
+
     class CloseCommand < Redcar::Command
       def self.regex
         /^x$/

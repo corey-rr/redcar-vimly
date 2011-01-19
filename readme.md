@@ -11,6 +11,7 @@ Features include:
  - Running terminal commands*
  - Running ruby commands*
  - Opening a terminal in the project directory or a specified one
+ - Open a link in a web browser
 
 \* optionally uses selected text by replacing `_S_`
 
@@ -42,6 +43,7 @@ or, more likely, use the keybinding (currently `Alt+M`, and `Esc` closes the bar
  - `t` opens a terminal
  - `t vimly` opens a terminal in the vimly directory of the currently open project
  - `t /usr/bin` opens a terminal in the given directory
+ - `w google.com` opens google.com in a web browser
 
 ###todo
 

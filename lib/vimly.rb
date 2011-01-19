@@ -35,7 +35,8 @@ module Redcar
         HelpCommand,
         InsertCommand,
         CloseCommand,
-        OpenTerminalCommand
+        OpenTerminalCommand,
+        OpenWebBrowserCommand
       ]
     end
 
