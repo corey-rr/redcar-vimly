@@ -14,6 +14,16 @@ Features include:
 
 \* optionally uses selected text by replacing `_S_`
 
+###install
+
+    cd ~/.redcar/plugins
+    git clone git://github.com/kattrali/redcar-vimly.git vimly
+
+###run
+
+Menu > Plugins > Vimly > Open Vimly
+or, more likely, use the keybinding (currently `Alt+M`, and `Esc` closes the bar)
+
 ###examples
 
  - `help` displays a list of supported commands and expressions
@@ -31,16 +41,7 @@ Features include:
  - `x` closes vimly
  - `t` opens a terminal
  - `t vimly` opens a terminal in the vimly directory of the currently open project
-
-###install
-
-    cd ~/.redcar/plugins
-    git clone git://github.com/kattrali/redcar-vimly.git vimly
-
-###run
-
-Menu > Plugins > Vimly > Open Vimly
-or, more likely, use the keybinding (currently `Alt+M`, and `Esc` closes the bar)
+ - `t /usr/bin` opens a terminal in the given directory
 
 ###todo
 
