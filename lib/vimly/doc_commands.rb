@@ -1,6 +1,25 @@
 
 module Redcar
   class Vimly
+    class UndoCommand < Redcar::EditTabCommand
+      def self.regex
+        /^u(\d*)$/
+      end
+
+      def self.description
+        "Undo actions"
+      end
+
+      def execute(params)
+        options = params[:options]
+        raise "No parameters given" unless options
+        count   = options.first.empty? ? 1 : options.first.to_i
+        (1..count).each do |i|
+          Redcar::Top::UndoCommand.new.run
+        end
+      end
+    end
+
     class DeleteCommand < Redcar::EditTabCommand
       def self.regex
         /^d$/
@@ -31,6 +50,7 @@ module Redcar
         raise "No parameters given" unless options
         line = [[options.first.to_i - 1,doc.line_count].min,0].max
         doc.cursor_offset = doc.offset_at_line(line)
+        doc.scroll_to_line(line)
       end
     end
 

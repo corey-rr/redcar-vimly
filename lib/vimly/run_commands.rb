@@ -3,11 +3,11 @@ module Redcar
   class Vimly
     class RunCommand < Redcar::Command
       def self.regex
-        /^(i?)!([^"]*)$/
+        /^(i?)!(.*)$/
       end
 
       def self.description
-        "Run a terminal command as a runnable or insert resulting text in a document"
+        "Run a terminal command as a runnable or insert resulting text in a document (using optional 'i' before '!')"
       end
 
       def execute(params)
@@ -29,7 +29,7 @@ module Redcar
         else
           case Redcar.platform
           when :osx, :linux
-            cmd = "cd #{path}; #{cmd}"
+            cmd = "cd #{path} && #{cmd}"
           when :windows
             cmd = "cd \"#{@path.gsub('/', '\\')}\" & #{cmd}"
           end
@@ -59,11 +59,11 @@ module Redcar
 
     class RunRuby < RunCommand
       def self.regex
-        /^r(i?)!([^"]*)$/
+        /^r(i?)!(.*)$/
       end
 
       def self.description
-        "Evaluate a ruby expression in a REPL or insert text result in a document"
+        "Evaluate a ruby expression in a REPL or insert text result in a document (using optional 'i' before '!')"
       end
 
       def execute(params)

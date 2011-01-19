@@ -1,4 +1,5 @@
 
+require 'vimly/app_commands'
 require 'vimly/doc_commands'
 require 'vimly/run_commands'
 
@@ -28,7 +29,10 @@ module Redcar
         RunCommand,
         RunRuby,
         GoToLine,
-        DeleteCommand
+        DeleteCommand,
+        UndoCommand,
+        EditFileCommand,
+        HelpCommand
       ]
     end
 
