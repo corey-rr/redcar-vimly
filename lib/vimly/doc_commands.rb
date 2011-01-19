@@ -38,18 +38,22 @@ module Redcar
 
     class GoToLine < Redcar::EditTabCommand
       def self.regex
-        /^g(\d+)$/
+        /^g(\d+)(e?)$/
       end
 
       def self.description
-        "Go to a line in a document"
+        "Go to a line in a document, and the end of that line by using the 'e' option"
       end
 
       def execute(params)
         options = params[:options]
         raise "No parameters given" unless options
         line = [[options.first.to_i - 1,doc.line_count].min,0].max
-        doc.cursor_offset = doc.offset_at_line(line)
+        if options.last.empty?
+          doc.cursor_offset = doc.offset_at_line(line)
+        else
+          doc.cursor_offset = doc.offset_at_inner_end_of_line(line)
+        end
         doc.scroll_to_line(line)
       end
     end
