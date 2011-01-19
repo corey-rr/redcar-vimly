@@ -37,7 +37,7 @@ or, more likely, use the keybinding (currently `Alt+M`, and `Esc` closes the bar
  - `!ls` lists all files in the project directory
  - `i!ls` lists all files in the project directory _and inserts the output into the current document_
  - `r!1+1` does some math via Ruby
- - `ri!1+1` does some math via Ruby _and inserts the output into the current document_
+ - `ir!1+1` does some math via Ruby _and inserts the output into the current document_
  - `x` closes vimly
  - `t` opens a terminal
  - `t vimly` opens a terminal in the vimly directory of the currently open project
