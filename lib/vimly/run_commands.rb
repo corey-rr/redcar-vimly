@@ -59,7 +59,7 @@ module Redcar
 
     class RunRuby < RunCommand
       def self.regex
-        /^r(i?)!(.*)$/
+        /^(i?)r!(.*)$/
       end
 
       def self.description
