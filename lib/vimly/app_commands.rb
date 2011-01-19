@@ -1,6 +1,35 @@
 
 module Redcar
   class Vimly
+    class OpenTerminalCommand < Redcar::Command
+      def self.regex
+        /^t( .*)?$/
+      end
+
+      def self.description
+        "Open a terminal in the project directory or a specified one"
+      end
+
+      def execute(params)
+        options = params[:options]
+        raise "No parameters given" unless options
+        path = options.first ? options.first.lstrip : ''
+        if project = Redcar::Project::Manager.focussed_project
+          if path.empty?
+            path = project.path
+          else
+            path = File.join(project.path,path) unless File.exist? path
+          end
+        end
+        path = '.' if path.empty?
+        begin
+          Redcar::Project::OpenDirectoryInCommandLineCommand.new(path).run
+        rescue Object => e
+          p e
+        end
+      end
+    end
+
     class CloseCommand < Redcar::Command
       def self.regex
         /^x$/

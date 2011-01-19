@@ -10,6 +10,7 @@ Features include:
  - Delete selection
  - Running terminal commands*
  - Running ruby commands*
+ - Opening a terminal in the project directory or a specified one
 
 \* optionally uses selected text by replacing `_S_`
 
@@ -20,12 +21,16 @@ Features include:
  - `s3w` selects three words
  - `g47` moves the cursor to line 47
  - `g6e` moves the cursor to the end of line 6
- - `u3` for undoes the last three actions
+ - `u3` undoes the last three actions
  - `d` nukes the current selection
+ - `i hello` inserts "hello" into the current document
  - `!ls` lists all files in the project directory
  - `i!ls` lists all files in the project directory _and inserts the output into the current document_
  - `r!1+1` does some math via Ruby
  - `ri!1+1` does some math via Ruby _and inserts the output into the current document_
+ - `x` closes vimly
+ - `t` opens a terminal
+ - `t vimly` opens a terminal in the vimly directory of the currently open project
 
 ###install
 

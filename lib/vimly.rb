@@ -34,7 +34,8 @@ module Redcar
         EditFileCommand,
         HelpCommand,
         InsertCommand,
-        CloseCommand
+        CloseCommand,
+        OpenTerminalCommand
       ]
     end
 
