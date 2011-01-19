@@ -1,6 +1,27 @@
 
 module Redcar
   class Vimly
+    class InsertCommand < Redcar::EditTabCommand
+      def self.regex
+        /^i (.*)$/
+      end
+
+      def self.description
+        "Insert text at the cursor or replace selection"
+      end
+
+      def execute(params)
+        options = params[:options]
+        raise "No parameters given" unless options
+        text = options.first
+        if doc.selection?
+          doc.replace_selection(text)
+        else
+          doc.insert_at_cursor(text)
+        end
+      end
+    end
+
     class UndoCommand < Redcar::EditTabCommand
       def self.regex
         /^u(\d*)$/

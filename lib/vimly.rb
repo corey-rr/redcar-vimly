@@ -32,7 +32,9 @@ module Redcar
         DeleteCommand,
         UndoCommand,
         EditFileCommand,
-        HelpCommand
+        HelpCommand,
+        InsertCommand,
+        CloseCommand
       ]
     end
 
@@ -61,8 +63,9 @@ module Redcar
 
       button :execute, 'Run', 'Return' do
         unless command.value.empty?
-          Vimly.parse(command.value)
+          text = command.value
           command.value = ''
+          Vimly.parse(text)
         end
       end
     end

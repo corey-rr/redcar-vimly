@@ -1,6 +1,22 @@
 
 module Redcar
   class Vimly
+    class CloseCommand < Redcar::Command
+      def self.regex
+        /^x$/
+      end
+
+      def self.description
+        "Close vimly"
+      end
+
+      def execute(params)
+        if win = Redcar.app.focussed_window
+          win.close_speedbar
+        end
+      end
+    end
+
     class HelpCommand < Redcar::Command
       def self.regex
         /^help$/
